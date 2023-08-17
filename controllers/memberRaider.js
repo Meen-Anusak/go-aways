@@ -17,3 +17,13 @@ exports.registerRaiderMember = async (req, res, next) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+exports.getRaiderMember = async (req, res, next) => {
+  try {
+    const raiders = await MemberRaider.find();
+    res.status(201).json(raiders);
+  } catch (error) {
+    console.log(error.message);
+    res.status(404).json({ message: error.message });
+  }
+};
